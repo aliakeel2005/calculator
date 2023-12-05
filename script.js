@@ -25,4 +25,8 @@ function operate(num1, opr, num2) {
     if(opr === '/') { return divide(num1,num2)}
 }
 
-console.log(operate(2 ,'+' ,8))
+const numbers = document.querySelector('.numbers')
+let displayValue = null
+numbers.addEventListener('click', () => { const pressedButton = event.target
+    displayValue = pressedButton.textContent})
+console.log(displayValue)
