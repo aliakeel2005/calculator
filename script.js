@@ -17,7 +17,8 @@ function divide(num1,num2) {
 let num1 = null
 let num2 = null
 let opr = null
-let displayValue = null
+let operatorClicked = false
+
 function operate(num1, opr, num2) {
     if(opr === '+') { return add(num1,num2)}
     if(opr === '-') { return subtract(num1,num2)}
@@ -25,17 +26,34 @@ function operate(num1, opr, num2) {
     if(opr === '/') { return divide(num1,num2)}
 }
 
-const buttons = document.querySelector('.buttons')
+const numbers = document.querySelector('.numbers')
+const operator = document.querySelector('.operator')
 const equals = document.querySelector('.equals')
-buttons.addEventListener('click', () => { 
-    const pressedButton = event.target
-    const buttonValue = pressedButton.textContent
-    if(Number.isInteger(parseInt(buttonValue))){
-   if(displayValue === null) {num1 = buttonValue}
-   else {num2 = buttonValue}
-displayValue = buttonValue }
-else {opr = buttonValue}})
+const display = document.querySelector('.display')
 
+let displayValue = null
+numbers.addEventListener('click', () => {
+const pressedButton = event.target
+displayValue = pressedButton.textContent
+
+if(!operatorClicked) {
+    num1 = parseFloat(displayValue)
+} else {
+    num2 = parseFloat(displayValue)
+}
+display = displayValue
+operatorClicked = false
+})
+
+equals.addEventListener('click', () => {
+    const result = operate(num1,opr,num2)
+    display.innerHTML = result.toString();
+})
+
+operator.addEventListener('click', () => {
+    const pressedOperator = event.target.textContent
+    opr = pressedOperator
+    operatorClicked = true
+})
 
 console.log(num1)
-console.log(num2)
