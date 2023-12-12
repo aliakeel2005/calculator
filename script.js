@@ -28,15 +28,15 @@ function operate(num1, opr, num2) {
 const numbers = document.querySelector('.numbers')
 const operator = document.querySelector('.operator')
 const display = document.querySelector('.display')
-const equals = document.querySelector('.equals')
+const equals = document.querySelector('#equals')
 
 numbers.addEventListener('click', () => {
     if(!displayValue.includes(operator)) {
-    num1 += event.target.textContent
+    num1 = event.target.textContent
     displayValue += num1
 }
 else {
-    num2 += event.target.textContent
-    displayValue =+ num2}})
+    num2 = event.target.textContent
+    displayValue += num2}})
 
     equals.addEventListener('click', () => {display.innerHTML = operate(num1,opr,num2)})
