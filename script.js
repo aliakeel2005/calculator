@@ -26,21 +26,25 @@ function operate(num1, opr, num2) {
 }
 
 const numbers = document.querySelector('.numbers')
-const operator = document.querySelector('.operator')
+const operator = document.querySelectorAll('.operator')
 const display = document.querySelector('.display')
 const equals = document.querySelector('#equals')
 
 numbers.addEventListener('click', () => {
-if(!displayValue.includes(operator)) {
- num1 = event.target.textContent 
- displayValue += num1} 
+if(!displayValue.includes("+" || "-" || "/" || "*")) {
+ num1 += event.target.textContent 
+ displayValue = num1} 
  else {
-    num2 = event.target.textContent
-    displayValue += num2}})      
+    num2 += event.target.textContent
+    displayValue = num2}
+    console.log('num1:', num1)
+    console.log("num2:", num2)
+    console.log("displayValue:", displayValue)})      
 
  equals.addEventListener('click', () => {
     parsedOne = parseFloat(num1); parsedTwo = parseFloat(num2);
     display.innerHTML = operate(num1,opr,num2)})
 
-    /* current issue:
-    parsedTwo returns NaN.*/
+    
+
+ console.log(operator.textContent)
