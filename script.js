@@ -31,8 +31,11 @@ const clear = document.querySelector('#clear')
 const display = document.querySelector('.display')
 const equals = document.querySelector('#equals')
 
+
+operators = ["+", "-", "/", "*"]
+
 numbers.addEventListener('click', () => {
-if(!displayValue.includes("+" || "-" || "/" || "*")) {
+if(!operators.some(oper => displayValue.includes(oper))) {
  num1 += event.target.textContent 
  displayValue += event.target.textContent
 display.textContent = displayValue} 
