@@ -33,18 +33,21 @@ const equals = document.querySelector('#equals')
 numbers.addEventListener('click', () => {
 if(!displayValue.includes("+" || "-" || "/" || "*")) {
  num1 += event.target.textContent 
- displayValue = num1} 
+ displayValue += event.target.textContent
+display.textContent = displayValue} 
  else {
     num2 += event.target.textContent
-    displayValue = num2}
+    displayValue += event.target.textContent
+display.textContent = displayValue}
     console.log('num1:', num1)
     console.log("num2:", num2)
     console.log("displayValue:", displayValue)})      
 
  equals.addEventListener('click', () => {
     parsedOne = parseFloat(num1); parsedTwo = parseFloat(num2);
-    display.innerHTML = operate(num1,opr,num2)})
+    display.innerHTML = operate(parsedOne,opr,parsedTwo)})
 
     
 
- console.log(operator.textContent)
+ /* current issue: displayValue not indexing correct and full number*/
+ 
