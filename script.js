@@ -16,7 +16,7 @@ function divide(num1,num2) {
 
 let num1 = ''
 let num2 = ''
-let opr = null
+let operator = null
 let displayValue = ''
 function operate(num1, opr, num2) {
     if(opr === '+') { return add(num1,num2)}
@@ -26,7 +26,8 @@ function operate(num1, opr, num2) {
 }
 
 const numbers = document.querySelector('.numbers')
-const operator = document.querySelectorAll('.operator')
+// const operator = document.querySelectorAll('.operator')
+const clear = document.querySelector('#clear')
 const display = document.querySelector('.display')
 const equals = document.querySelector('#equals')
 
@@ -41,11 +42,24 @@ display.textContent = displayValue}
 display.textContent = displayValue}
     console.log('num1:', num1)
     console.log("num2:", num2)
-    console.log("displayValue:", displayValue)})      
+    console.log("displayValue:", displayValue)
+   
+for(const char of displayValue) {if(char === "+" || char === "-" || char === "/" || char === "*") {
+    console.log(char)
+ operator = char
+break;}}
+})      
+
+clear.addEventListener('click', () => {
+    displayValue = ''
+    num1 = ''
+    num2 = ''
+    display.textContent = ''
+})
 
  equals.addEventListener('click', () => {
     parsedOne = parseFloat(num1); parsedTwo = parseFloat(num2);
-    display.innerHTML = operate(parsedOne,opr,parsedTwo)})
+    display.innerHTML = operate(parsedOne,operator,parsedTwo)})
 
     
 

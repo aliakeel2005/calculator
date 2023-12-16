@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.calc {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 5px;
+}
+.display {
+    border: solid 5px black;
+}
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+button {
+    padding: 3px;
+}
