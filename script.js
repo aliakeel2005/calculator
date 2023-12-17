@@ -43,14 +43,22 @@ display.textContent = displayValue}
     num2 += event.target.textContent
     displayValue += event.target.textContent
 display.textContent = displayValue}
-    console.log('num1:', num1)
-    console.log("num2:", num2)
-    console.log("displayValue:", displayValue)
+if((operators.some(oper => num2.includes(oper))))
+{
+    num1 = operate(parseFloat(num1), operator, parseFloat(num2))
+    num2 = ''
+}
    
 for(const char of displayValue) {if(char === "+" || char === "-" || char === "/" || char === "*") {
     console.log(char)
  operator = char
-break;}}
+}}
+
+
+    console.log('num1:', num1)
+    console.log("num2:", num2)
+    console.log("displayValue:", displayValue)
+    console.log('operator:', operator)
 })      
 
 clear.addEventListener('click', () => {
@@ -66,5 +74,5 @@ clear.addEventListener('click', () => {
 
     
 
- /* current issue: displayValue not indexing correct and full number*/
+ /* current issue: calculator only accepts 2 operations at once*/
  
